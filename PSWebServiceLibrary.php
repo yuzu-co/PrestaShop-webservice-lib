@@ -46,7 +46,7 @@ class PrestaShopWebservice
 
 	/** @var array compatible versions of PrestaShop Webservice */
 	const psCompatibleVersionsMin = '1.4.0.0';
-	const psCompatibleVersionsMax = '1.6.0.11';
+	const psCompatibleVersionsMax = '1.6.1.3';
 	
 	/**
 	 * PrestaShopWebservice constructor. Throw an exception when CURL is not installed/activated
@@ -290,9 +290,9 @@ class PrestaShopWebservice
 		}
 		else
 			throw new PrestaShopWebserviceException('Bad parameters given');
-		
+
 		$request = self::executeRequest($url, array(CURLOPT_CUSTOMREQUEST => 'GET'));
-		
+
 		self::checkStatusCode($request['status_code']);// check the response validity
 		return self::parseXML($request['response']);
 	}
